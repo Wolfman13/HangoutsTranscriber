@@ -1,25 +1,15 @@
-import java.nio.file.Files;
-import java.nio.file.Path;
-
-class Transcriber {
-    private static String filepath;
-
-    public Transcriber() {
-
-    }
-
-    private String readFile(String filepath) {
-        try {
-            return Files.readString(Path.of(filepath));
-        } catch (Exception ex) {
-            System.err.println("Failed to open file: " + filepath);
-            return null;
-        }
-    }
-}
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        new Transcriber();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Path to the path to the Hangouts.json file: ");
+        String filepath = scanner.nextLine();
+
+        System.out.print("Output directory: ");
+        String outDir = scanner.nextLine();
+
+        new Transcriber(filepath, outDir);
     }
 }
